@@ -1,15 +1,17 @@
-function y = lmao(x)
-    y = (x-(%e.^-x));
+function y=f(x)
+    y=(x-(%e^x));
 endfunction
-error = input("Digite el error");
-xn = input("digite primer calor de x")
-xmait = input("digite la mayor iteracion")
+
+function root=Graeffe(xn,e)
 it = 0;
-while (it<xmait)
-    while (abs(lmao(xn))>error)
-        xni=xn-(((lmao(xn))^2)/(lmao(xn+(lmao(xn)))
+printf('+-----------+-----------------------+----------------------+\n');
+printf('| Iteracion |      xn               |  error               |\n');
+printf('+-----------+-----------------------+----------------------+\n');
+printf('| %9d | %20.15f | %20.15f | |\n',it,xn,e);
+    while ((abs(f(xn))>e)&(it<5))
+        it = it+1;
+        xni=xn-(((f(xn))^2)/(f(xn+(f(xn)))-f(xn)))
         xn=xni;
-        disp(xn)
-        it= it+1;
+        printf('| %9d | %20.15f | %20.15f |\n',it,xn,e);
     end
-end
+endfunction 
