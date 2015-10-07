@@ -10,6 +10,7 @@ endfunction
      y
  endfunction
 function x=newtonraphson(x0,tol);
+    
 i=1;
 ea(1)=100;
 x(1)=x0;
