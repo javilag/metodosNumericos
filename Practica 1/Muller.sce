@@ -1,12 +1,17 @@
-function y=f(x)
-    y=(x-(%e^x));
-endfunction
 
-function root=Muller(p,x0,x1,x2,ef,ei,maxit)
+function root=Muller(f,p,x0,x1,x2,ef,ei,maxit)
 it = 0;
 rai=0;
+f=evstr(f);
+x=x0
+fx0=evstr(f)
+x=x1
+fx1=evstr(f)
+x=x2
+fx2=evstr(f)
+
 for k=1:maxit;
-    if(abs(f(x2))<=ef)
+    if(abs(fx2)<=ef)
         d=(x0-x1)(x0-x2)(x1-x2)
         if(abs(d)<=ei)
             a=((-(x0-x2)*(f(x1)-f(x2)))+(((x1-x1)*(f(x0)-f(x2)))))/d;

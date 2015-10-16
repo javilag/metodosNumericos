@@ -15,7 +15,7 @@ for k = 1:N-1
 end
 F = -inv(D+L)*U;
 Rs= max(abs(eigs(F))
-p = 6;
+p = 5;
 Ni= (p*log(10))/(-log(Rs));
 Nm= fix(Ni)+1;
 X = zeros(N,Nm);

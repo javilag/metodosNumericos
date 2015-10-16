@@ -1,22 +1,16 @@
-function y=f(x)
-y=exp(-x)-log(x);
-endfunction
- 
-function y=df(x)
-y=-exp(-x)-1/x;
-endfunction
- 
- function y=d2f (x)
-     y
- endfunction
-function x=newtonraphson(x0,tol);
+
+function x=newtonraphsonMd(f,df,d2f,x0,tol);
     
 i=1;
 ea(1)=100;
 x(1)=x0;
+
 while abs(ea(i))>=tol;
-    
-    X(i+1)=(f(x(i))*df(x(i)))/(((df(x(i)))^2)-((f(x(i)))*(d2f(x(i)))));
+    x=x(i)
+    fxi=evstr(f);
+    x=x(i)
+    dfxi=evstr(df);
+    X(i+1)=((fxi)*(dfxi))/(((dfxi)^2)-((f(x(i)))*(d2f(x(i)))));
     ea(i+1)=abs((x(i+1)-x(i))/x(i+1)*100);
     i=i+1;
     Y(i+1)=i;
