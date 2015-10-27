@@ -3,44 +3,30 @@
 //endfunction
 
 function  secanteM(f,xi,tol,imax)
-i=0;
-xid=xi+d;
-x=xi
-fxi=evstr(f);
-x=xid
-fxid=evstr(f);
-x(1)=x0;
-x(2)=x1;
-ea(i)=100;
+i=1;
+d=2;
 printf('+-----------+----------------------+----------------------+\n');
 printf('| Iteracion |        xi            |      error           |\n');
 printf('+-----------+----------------------+----------------------+\n');
 printf('| %9d | %20.15f | %20.15f |\n',i,xi,tol);
-while (abs(ea(i))>=tol) & (i<imax)
-    if (fxid-func(xi)) ~= 0
-        xr=xi-(fxi*(fxid-xi))/(fxid-fxi);
-    else
-        xr=xi;
-    end
-    if xr ~=0
-        ea=abs((xr-xi)/xr)*100;
-    elseif xr==xi
-        ea=0;
-    end
-    xid=xr+d;
-    xi=xr;
-    x=xr
+ea(i)=100;
+while (i<imax)
+    xid=xi+d;
+    x=xi
     fxi=evstr(f);
     x=xid
     fxid=evstr(f);
-    i=i+1;
-    printf('| %9d | %20.15f | %20.15f |\n',i,xi,tol);
+    if(abs(ea(i))>=tol) 
+        xr=xi-(fxi*(fxid-xi))/(fxid-fxi);
+        ea(i+1)=abs((xr-xi)/xr);
+        xi=xr;
+        X(i)=xr;
+        Y(i)=i;
+        printf('| %9d | %20.15f | %20.15f |\n',i,xi,ea(i+1));
+        i=i+1;
+    else
+        imax=i;
+    end    
 end
- 
-printf(' i \t\t x(i) \t Error aprox (i) \n');
-printf('%2d \t %11.7f \t \n',0,x(1));
-//printf('Modified Secant Method\n')
-//printf('xr = %d\n',xr)
-//printf('ea = %d\n',ea)
-//printf('# of interations = %d\n',i)
+plot(X,Y);
 endfunction

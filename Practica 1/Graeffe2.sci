@@ -13,8 +13,8 @@ while (it<itx)
     it = it+1;
     if abs(fxn)>=e
         xni=xn-(((fxn)^2)/(fxnn-fxn))
-        X(it+1)=xni;
-        Y(it+1)=it;
+        Y(it+1)=xni;
+        X(it+1)=it;
         xn=xni;
         printf('| %9d | %20.15f | %20.15f |\n',it,xn,fxn);
     else
