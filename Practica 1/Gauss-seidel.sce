@@ -1,26 +1,31 @@
-A = [ 1 2 3; 5 6 7; 3 1 9];
-C = [5 4 3];
-N = rank(A);
-for k = 1:N
-    B(K,1) = B(k,1)/A(k,k);
-    A(k,:) = A(k,:)/A(k,k);
+function gauss(A,B,P,tol,itx)
+//A es una matriz no singular N X N
+//B es una matriz N x 1, osea el vector resultado 
+//P es una matriz N x 1, los supuestos iniciales 
+//err es la tolerancia para P 
+//itx es el numero maximo de iteraciones 
+N = length(B);
+for  k = 1:itx
+   for  j = 1:N
+      if  j == 1
+        X(1)=(B(1)-(A(1,2:N)*P(2:N)))/A(1,1);
+      elseif  j ~= N//lol
+        // X contiene la k-esima aproximacion  y  P la (k-1)-esima
+        X(j)=(B(j) - A(j,1:j-1)*X(1:j-1)'-A(j,j+1:N)*P(j+1:N))/A(j, j);
+      else
+        X(N)=(B(N)-(A(N,1:N-1)*(X(1:N-1))'))/A(N,N);
+      end
+   end
+   err = abs(norm(X' - P));
+   relerr = err / (norm(X) + eps);
+   P = X';
+      if  (err < tol)  |  (relerr < tol)
+     break
+   end
 end
-D = eye(N);
-L = zeros(N);
-U = zeros(N);
-A = A-D;
-for k = 1:N-1
-    L(k:N,k) = A(k:N,k);
-    U(k,k:N) = A(k,k:N);
-end
-F = -inv(D+L)*U;
-Rs= max(abs(eigs(F))
-p = 5;
-Ni= (p*log(10))/(-log(Rs));
-Nm= fix(Ni)+1;
-X = zeros(N,Nm);
-X(:,1)=ones;
-for k=2:Nm
-    X(:,k) = F*X(:,k-1)+ inv(D+L)*B;
-end
-X 
+
+X = X';
+k;
+printf(X);
+printf(k);
+endfunction

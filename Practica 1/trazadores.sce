@@ -1,4 +1,10 @@
 function trazadorcubi(X)
+//Es necesario que cada trazador que se ingrese sea una matriz diferente
+//para encontrar los posibles errores
+//los puntos que se escogieron fueron del carro de la compañera berly estafania
+//ya que ella cancelo la clase, dentro de la carpeta abra un archivo de excel
+//llamado puntoTraza que contendra los trazadores y los puntos para formar el 
+//dibujo 
 n=length(X(1,:));
 
 for i=1:n
